@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th colspan="2"></th>
+    </tr>
+    @for (c of cart?.value; track c) {
+        <tr>
+            <td>{{c.product.title}}</td>
+            <td>{{c.product.price}}</td>
+            <td>{{c.quantity}}</td>
+            <td>
+                <button matIconButton class="increase-qty-btn" (click)="increaseQuantity(c.product)"><mat-icon>add</mat-icon></button>
+                <button matIconButton class="decrease-qty-btn" (click)="decreaseQuantity(c.product)"><mat-icon>remove</mat-icon></button>
+                <button matIconButton class="delete-from-cart-btn" (click)="deleteFromCart(c.product)"><mat-icon>delete</mat-icon></button>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,11 @@
+.increase-qty-btn{
+    color: green;
+}
+
+.deacrease-qty-btn{
+    color: gray;
+}
+
+.delete-from-cart-btn{
+    color: red;
+}
