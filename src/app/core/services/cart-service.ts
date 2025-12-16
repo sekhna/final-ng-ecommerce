@@ -31,7 +31,6 @@ export class CartService {
       this.cartItems.push({ product, quantity: 1 });
     }
 
-    // this.cartItemCount.next(this.cartItemCount.value + 1);
     this.updateSubjects();
     this.saveCartToLocalStorage();
   }
@@ -46,7 +45,6 @@ export class CartService {
       }
     }
 
-    // this.cartItemCount.next(this.cartItemCount.value - 1);
     this.updateSubjects();
     this.saveCartToLocalStorage();
   }
@@ -55,9 +53,6 @@ export class CartService {
     const existingItem = this.cartItems.find(item => item.product.id === productId);
     
     if (existingItem) {
-      // const itemIndex = this.cartItems.findIndex(item => item.product.id === productId);
-      // this.cartItemCount.next(this.cartItemCount.value - existingItem.quantity);
-      // this.cartItems.splice(itemIndex, 1);
       this.cartItems = this.cartItems.filter(item => item.product.id !== productId);
 
       this.updateSubjects();
@@ -74,8 +69,6 @@ export class CartService {
     const cartJson = localStorage.getItem('cart');
     if (cartJson) {
       this.cartItems = JSON.parse(cartJson);
-      // const itemCount = this.cartItems.reduce((total, item) => total + item.quantity, 0);
-      // this.cartItemCount.next(itemCount);
     }
     this.updateSubjects();
   }

@@ -1,0 +1,38 @@
+.cart-item-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    align-items: center;
+}
+
+.cart-item p:first-child {
+    width: 50%;
+}
+
+.cart-item > :not(p:first-child) {
+    text-align: center;
+    width: calc(50% / 3);
+}
+
+.cart-item div:last-child {
+    text-align: right;
+}
+
+.increase-qty-btn {
+    color: green;
+}
+
+.deacrease-qty-btn {
+    color: gray;
+}
+
+.delete-from-cart-btn {
+    color: red;
+}

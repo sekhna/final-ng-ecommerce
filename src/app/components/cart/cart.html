@@ -1,20 +1,17 @@
-<table>
-    <tr>
-        <th>Product</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th colspan="2"></th>
-    </tr>
-    @for (c of cart?.value; track c) {
-        <tr>
-            <td>{{c.product.title}}</td>
-            <td>{{c.product.price}}</td>
-            <td>{{c.quantity}}</td>
-            <td>
-                <button matIconButton class="increase-qty-btn" (click)="increaseQuantity(c.product)"><mat-icon>add</mat-icon></button>
-                <button matIconButton class="decrease-qty-btn" (click)="decreaseQuantity(c.product)"><mat-icon>remove</mat-icon></button>
-                <button matIconButton class="delete-from-cart-btn" (click)="deleteFromCart(c.product)"><mat-icon>delete</mat-icon></button>
-            </td>
-        </tr>
+<div class="shopping-cart">
+    @if (cart | async; as cart){
+        @if(cart.length > 0){
+        <div class="cart-items">
+            @for (c of cart; track c) {
+                <app-cart-product [cartItem]="c"></app-cart-product>
+            }
+        </div>
+        <div class="cart-summary">
+            <app-cart-summary></app-cart-summary>
+        </div>
+        }
+        @else{
+            <h1>Your cart is empty</h1>
+        }
     }
-</table>
+</div>

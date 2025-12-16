@@ -1,0 +1,31 @@
+.cart-summary-detail {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.cart-summary-container {
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    padding: 0 20px 20px 20px;
+}
+
+.cart-summary-buttons-container {
+    border-top: 1px solid lightgrey;
+    padding: 10px 0;
+}
+
+.buy-products-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.buy-products-btn:hover {
+    background-color: #142a71;
+}

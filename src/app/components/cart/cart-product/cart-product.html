@@ -1,0 +1,15 @@
+<div class="cart-item-container">
+    <div class="cart-item">
+        <p>{{cartItem().product.title}}</p>
+        <p>{{cartItem().quantity}}</p>
+        <p><strong>{{cartItem().product.price | currency}}</strong></p>
+        <div>
+            <button matIconButton class="increase-qty-btn"
+            (click)="increaseQuantity()"><mat-icon>add</mat-icon></button>
+            <button matIconButton class="decrease-qty-btn"
+            (click)="decreaseQuantity()"><mat-icon>remove</mat-icon></button>
+            <button matIconButton class="delete-from-cart-btn"
+            (click)="deleteFromCart()"><mat-icon>delete</mat-icon></button>
+        </div>
+    </div>
+</div>

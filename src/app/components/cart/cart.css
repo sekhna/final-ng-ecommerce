@@ -1,11 +1,18 @@
-.increase-qty-btn{
-    color: green;
+.cart-items {
+    width: 70%;
 }
 
-.deacrease-qty-btn{
-    color: gray;
+.shopping-cart h1 {
+    text-align: center;
 }
 
-.delete-from-cart-btn{
-    color: red;
+.shopping-cart {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content: center;
+}
+
+.cart-summary {
+    width: 15%;
 }
