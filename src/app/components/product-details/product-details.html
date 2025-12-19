@@ -1,26 +1,31 @@
 <div class="product-details-container">
-    @if(product()){
+    @if(product() === undefined){
+        <div class="loading-spinner">
+            <mat-progress-spinner mode="indeterminate" ></mat-progress-spinner>
+        </div>  
+    }
+    @else if(product(); as product){
         <div class="product-image">
-            <img [src]="product()?.image" alt="{{ product()?.title }}" />
+            <img [src]="product.image" alt="{{ product.title }}" />
         </div>
         <div class="product-info">
-            <h1>{{ product()?.title }}</h1>
-            <p class="description">{{ product()?.description }}</p>
-            <p class="price">Price: ${{ product()?.price }}</p>
+            <h1>{{ product.title }}</h1>
+            <p class="description">{{ product.description }}</p>
+            <p class="price">Price: ${{ product.price }}</p>
             <hr class="product-details-hr">
             <div class="product-details-buttons">
                 <div class="product-buttons">
                     @if(productQuantityInCart > 0){
-                    <div class="quantity-buttons">
-                        <button matIconButton class="increase-qty-btn"
-                            (click)="increaseQuantity()"><mat-icon>add</mat-icon></button>
-                        <span class="product-quantity-in-cart">{{productQuantityInCart}}</span>
-                        <button matIconButton class="decrease-qty-btn"
-                            (click)="decreaseQuantity()"><mat-icon>remove</mat-icon></button>
-                    </div>
+                        <div class="quantity-buttons">
+                            <button matIconButton class="increase-qty-btn"
+                                (click)="increaseQuantity()"><mat-icon>add</mat-icon></button>
+                            <span class="product-quantity-in-cart">{{productQuantityInCart}}</span>
+                            <button matIconButton class="decrease-qty-btn"
+                                (click)="decreaseQuantity()"><mat-icon>remove</mat-icon></button>
+                        </div>
                     }
                     @else{
-                    <button class="add-product-to-cart-btn" (click)="addProductToCart(product())">Add to Cart</button>
+                        <button class="add-product-to-cart-btn" (click)="addProductToCart(product)">Add to Cart</button>
                     }
                 </div>
                 <div>
@@ -30,6 +35,6 @@
         </div>
     }
     @else{
-        <h1>Product Not Found</h1>
+        <h1 class="product-not-found-header">Product Not Found</h1>
     }
 </div>

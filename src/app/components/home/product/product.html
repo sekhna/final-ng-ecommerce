@@ -1,0 +1,12 @@
+<a [routerLink]="['/products', product().id]" class="product-link-overlay">
+    <div class="product-image-container">
+        <img [src]="product().image" alt="{{ product().title }}" class="product-image" />
+    </div>
+    <p class="product-price">{{ product().price | currency }}</p>
+    <h3 class="product-title">{{ product().title }}</h3>
+</a>
+<div class="product-actions">
+    <button matButton extended (click)="addProductToCart()" class="add-to-cart-btn">
+        <mat-icon>add_shopping_cart</mat-icon> Add to Cart
+    </button>
+</div>

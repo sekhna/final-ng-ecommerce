@@ -2,20 +2,20 @@ import { Component, computed, effect, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IProduct } from '../../models/product.model';
 import { ProductService } from '../../core/services/product-service';
-import { BehaviorSubject } from 'rxjs';
 import { CartService } from '../../core/services/cart-service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-product-details',
-  imports: [RouterLink, MatIconModule, MatIconButton],
+  imports: [RouterLink, MatIconModule, MatIconButton, MatProgressSpinnerModule],
   templateUrl: './product-details.html',
   styleUrl: './product-details.css',
 })
 export class ProductDetails {
   productId: number | null = null;
-  product = signal<IProduct | null>(null);
+  product = signal<IProduct | null | undefined>(undefined);
   productService = inject(ProductService);
   productQuantityInCart = 0;
   cartService = inject(CartService);

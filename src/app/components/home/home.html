@@ -1,21 +1,19 @@
 <div class="home">
-    <div class="filter-container"></div>
+    <div class="filter-container">
+        <h2>Filter</h2>
+        <input type="text" placeholder="Search by category" class="search-box" [(ngModel)]="searchCategory">
+        <input type="text" placeholder="Search by name" class="search-box" [(ngModel)]="searchName">
+    </div>
     <div class="products-container">
-        @for (product of products(); track product) {
-        <div class="product-card">
-            <a [routerLink]="['/products', product.id]" class="product-link-overlay">
-                <div class="product-image-container">
-                    <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
-                </div>
-                <p class="product-price">{{ product.price | currency }}</p>
-                <h3 class="product-title">{{ product.title }}</h3>
-            </a>
-            <div class="product-actions">
-                <button matButton extended (click)="addProductToCart(product)" class="add-to-cart-btn">
-                    <mat-icon>add_shopping_cart</mat-icon> Add to Cart
-                </button>
-            </div>
-        </div>
+        @if(isLoading()){
+            <div class="loading-spinner">
+                <mat-progress-spinner mode="indeterminate" ></mat-progress-spinner>
+            </div>    
+        }
+        @else{
+            @for (product of filteredProducts; track product) {
+                <app-product [product]="product"></app-product>
+            }
         }
     </div>
 </div>

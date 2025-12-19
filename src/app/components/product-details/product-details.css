@@ -69,7 +69,7 @@
   border: 1px solid var(--primary-color);
 }
 
-.product-details-container h1 {
+.product-not-found-header {
   text-align: center;
   width: 100%;
 }
