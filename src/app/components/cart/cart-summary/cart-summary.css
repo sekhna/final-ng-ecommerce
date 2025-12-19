@@ -17,13 +17,14 @@
 
 .buy-products-btn {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
     background-color: var(--primary-color);
     color: white;
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
+    border-color: var(--primary-color);;
 }
 
 .buy-products-btn:hover {

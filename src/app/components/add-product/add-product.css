@@ -1,0 +1,64 @@
+.add-product-form {
+    width: 400px;
+    padding: 20px 40px;
+}
+
+.error-msg {
+    color: red;
+    font-weight: bold;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.form-group input,
+textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.submit-btn[disabled] {
+    background-color: lightgray;
+    border-color: lightgray;
+}
+
+.submit-btn {
+    border-radius: 5px;
+    padding: 15px;
+    width: 50%;
+    background-color: green;
+    border-color: green;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    float: right;
+}
+
+.submit-btn:hover:not([disabled]) {
+    background-color: rgb(4, 80, 4);
+}
+
+textarea {
+    resize: none;
+    height: 4rem;
+}
+
+.form-header {
+    border-bottom: 1px solid lightgray;
+    padding: 10px 0;
+}

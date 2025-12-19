@@ -23,8 +23,6 @@ export class Home implements OnInit {
     this.productService.getProducts().subscribe((response) => {
       this.products.set(response);
     });
-
-    console.log(this.products());
   }
 
   addProductToCart(product: IProduct): void {
