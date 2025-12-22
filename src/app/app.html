@@ -1,8 +1,12 @@
-
 <header>
   <nav class="nav">
     <a routerLink="">Home</a>
-    <a routerLink="cart"><mat-icon fontIcon="shopping_cart" [matBadge] = cartItemsCount?.value></mat-icon></a>
+    <div class="actions">
+      <button routerLink="admin/login" matButton class="login-btn">
+        <mat-icon>person</mat-icon> Login
+      </button>
+      <a routerLink="cart" class="shopping-cart-btn"><mat-icon fontIcon="shopping_cart" [matBadge]=cartItemsCount?.value></mat-icon></a>
+    </div>
   </nav>
 </header>
 <main>

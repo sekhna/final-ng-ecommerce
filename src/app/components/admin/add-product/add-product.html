@@ -1,1 +1,46 @@
-<p>add-product works!</p>
+<div class="add-product-form">
+    <h2 class="form-header">Add New Product</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" formControlName="title">
+            @if(productForm.get('title')?.touched && productForm.get('title')?.invalid){
+                <div class="error-msg">Product title is required</div>
+            }
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" id="price" formControlName="price">
+            @if(productForm.get('price')?.touched && productForm.get('price')?.invalid){
+                @if(productForm.get('price')?.errors?.['required'])
+                {
+                    <div class="error-msg">Product price is required</div>
+                }
+                @if(productForm.get('price')?.errors?.['min'])
+                {
+                    <div class="error-msg">Product price must be greater than 0</div>
+                }
+            }
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" formControlName="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" id="category" formControlName="category">
+            @if(productForm.get('category')?.touched && productForm.get('category')?.invalid){
+                <div class="error-msg">Product category is required</div>
+            }
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="text" id="image" formControlName="image">
+            @if(productForm.get('image')?.touched && productForm.get('image')?.invalid){
+                <div class="error-msg">Product image should be a valid Url</div>
+            }
+        </div>
+        <button type="submit" class="submit-btn" [disabled]="productForm.invalid">Add Product</button>
+
+    </form>
+</div>

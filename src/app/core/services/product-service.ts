@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { IProduct } from '../../models/product.model';
-import { API_BASE_URL } from '../constants';
+import { PRODUCT_API_BASE_URL } from '../constants';
 import { catchError, map, Observable, of } from 'rxjs';
 
 @Injectable({
@@ -11,15 +11,15 @@ export class ProductService {
   private http = inject(HttpClient);
 
   getProducts() {
-    return this.http.get<IProduct[]>(`${API_BASE_URL}/products`);
+    return this.http.get<IProduct[]>(`${PRODUCT_API_BASE_URL}`);
   }
 
   getProductById(id: number) {
-    return this.http.get<IProduct>(`${API_BASE_URL}/products/${id}`);
+    return this.http.get<IProduct>(`${PRODUCT_API_BASE_URL}/${id}`);
   }
 
   addProduct(product: IProduct): Observable<boolean> {
-    return this.http.post(`${API_BASE_URL}/products`, product, { observe: 'response' }).pipe(
+    return this.http.post(`${PRODUCT_API_BASE_URL}`, product, { observe: 'response' }).pipe(
       map(response => {
         return response.ok;
       }),
